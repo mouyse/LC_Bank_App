@@ -31,6 +31,28 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
+
+                      @if (Auth::check())
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
+                      </li>
+
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('home') }}">{{ __('Cash Deposit') }}</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('home') }}">{{ __('Cash Withdrawal') }}</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('home') }}">{{ __('Cash Transfer') }}</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('home') }}">{{ __('Account Statement') }}</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('logout') }}">{{ __('Logout') }}</a>
+                      </li>
+                      @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
