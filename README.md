@@ -1,18 +1,51 @@
-## About Lead Center Bank App
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Problem Statement
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Develop a small banking application in PHP using Laravel framework
+(https://laravel.com/). The application will perform the below
+operations:
+
+1. Registration – Creating a new account with email id and password
+
+2. Login
+
+3. Inbox/Home – Display account information
+
+4. Cash Deposit – To deposit some amount in the logged in account
+
+5. Cash Withdrawal – To withdraw some amount from the logged in account
+
+6. Cash Transfer – To transfer some amount from logged in account to another using email id
+
+7. Account Statement
+
+8. Logout
+
+Check the below mock-up to get a better idea of the functionality of
+the app. The mock-up is created using tabler
+(https://tabler.github.io/), but you can use any CSS framework that you
+would like to use.
+
+Keep in mind that there are no "right answers". This assignment is
+designed to gauge your skills and give us an idea of how you
+approach tasks relevant to the role. Please try to write clean and
+maintainable code. More points for unit tests, but it is not necessary. It
+would be great if you could send this over to us within 3 days.
+
 
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Jay Shah via [jayy.shah16@gmail.com](mailto:jayy.shah16@gmail.com). All security vulnerabilities will be promptly addressed.
 
+
+## 🚀 About Me
+I am a Tech Lead, Manager at The Fuller Life; most of the times wearing the hat of business analyst, product manager, developer, tester and everything else that sometimes a lone wolf has to do to get things done.
+
+Currently working on architecting/managing/developing variety of products written in LAMP/MERN stack, Android, iOS, Linux, etc. I have good hands-on experience at database designing/optimization, software engineering, development, prototyping new products, testing, deployment, etc.
+
+I believe in simplicity, and thus I love creating simple solution for complex products and learning new technologies. I don't believe in working on any particular programming language at a time, at least believing in that programming language shouldn't be a boundry for a programmer. Always worked on multiple languages/things to expand my horizon across the past/present/future technology.
+
+Experienced in setting up startup technology environment using an Open Source Stack.
+
+Reading and learning new things(technology, languages and so on) is something what I'm always excited about. When I'm not working, I would be either cycling, reading or taking the road less travelled. In my spare time, I prefer searching for travel deals or planning the next trip passionately and wondering what to eat for lunch/dinner.
