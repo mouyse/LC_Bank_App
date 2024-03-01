@@ -34,11 +34,6 @@ maintainable code. More points for unit tests, but it is not necessary. It
 would be great if you could send this over to us within 3 days.
 
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Jay Shah via [jayy.shah16@gmail.com](mailto:jayy.shah16@gmail.com). All security vulnerabilities will be promptly addressed.
-
-
 ## 🚀 About Me
 I am a Tech Lead, Manager at The Fuller Life; most of the times wearing the hat of business analyst, product manager, developer, tester and everything else that sometimes a lone wolf has to do to get things done.
 
@@ -49,3 +44,8 @@ I believe in simplicity, and thus I love creating simple solution for complex pr
 Experienced in setting up startup technology environment using an Open Source Stack.
 
 Reading and learning new things(technology, languages and so on) is something what I'm always excited about. When I'm not working, I would be either cycling, reading or taking the road less travelled. In my spare time, I prefer searching for travel deals or planning the next trip passionately and wondering what to eat for lunch/dinner.
+
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Jay Shah via [jayy.shah16@gmail.com](mailto:jayy.shah16@gmail.com). All security vulnerabilities will be promptly addressed.
