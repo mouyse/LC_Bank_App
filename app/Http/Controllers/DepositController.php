@@ -22,7 +22,7 @@ class DepositController extends Controller
     public function index() : View
     {
       return view('deposits.index', [
-          'deposits' => Deposit::latest()->paginate(3)
+          'deposits' => Deposit::where('account_id',Auth::id())->latest()->paginate(3)
       ]);
     }
 
@@ -44,13 +44,18 @@ class DepositController extends Controller
      */
     public function store(StoreDepositRequest $request) : RedirectResponse
     {
-      $deposit = Deposit::create(['account_id' => Auth::id()]);
-      $transaction = Transaction::create(
+      $deposit = Deposit::create(
         [
-          'transaction_type_id' => 1,
+          'account_id' => Auth::id(),
           'amount' => $request->input('amount'),
-        ],
+        ]
       );
+      // $transaction = Transaction::create(
+      //   [
+      //     'transaction_type_id' => 1,
+      //     'amount' => $request->input('amount'),
+      //   ],
+      // );
       return redirect()->route('deposits.index')
               ->withSuccess('Amount is deposited successfully.');
     }

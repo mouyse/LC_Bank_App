@@ -20,6 +20,7 @@
                           <tr>
                             <th scope="col">Sl. No.#</th>
                             <th scope="col">Amount</th>
+                            <th scope="col">Deposited on</th>
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
@@ -28,6 +29,7 @@
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $deposit->amount }}</td>
+                                <td>{{ $deposit->created_at }}</td>
                                 <td>
                                     <form action="{{ route('deposits.destroy', $deposit->deposit_id) }}" method="post">
                                         @csrf
