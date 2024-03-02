@@ -13,6 +13,7 @@ class Withdrawal extends Model
 
     protected $fillable = [
         'account_id',
+        'amount',
         'created_at',
         'updated_at',
     ];
