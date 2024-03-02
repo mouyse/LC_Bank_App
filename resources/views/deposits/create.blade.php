@@ -9,7 +9,7 @@
 
                 <div class="card-header">
                     <div class="float-start">
-                        Add New Deposit
+                        Add New Deposit - Account balance: <b>{{ $account_balance }}</b>
                     </div>
                     <div class="float-end">
                         <a href="{{ route('deposits.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>

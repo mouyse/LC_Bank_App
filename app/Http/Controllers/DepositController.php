@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreDepositRequest;
 use App\Http\Requests\UpdateDepositRequest;
 use App\Models\Deposit;
+use App\Models\Withdrawal;
 use App\Models\Transaction;
 
 use Illuminate\View\View;
@@ -14,6 +15,21 @@ use Auth;
 
 class DepositController extends Controller
 {
+    protected $account_balance;
+
+    public function __construct(){
+
+
+        $this->middleware(function ($request, $next) {
+            $deposited_amount = Deposit::where('account_id',Auth::id())->sum('amount');
+            $withdrawn_amount = Withdrawal::where('account_id',Auth::id())->sum('amount');
+            $this->account_balance = $deposited_amount - $withdrawn_amount;
+
+            return $next($request);
+        });
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +38,8 @@ class DepositController extends Controller
     public function index() : View
     {
       return view('deposits.index', [
-          'deposits' => Deposit::where('account_id',Auth::id())->latest()->paginate(3)
+          'deposits' => Deposit::where('account_id',Auth::id())->latest()->paginate(3),
+          'account_balance' => $this->account_balance,
       ]);
     }
 
@@ -33,7 +50,9 @@ class DepositController extends Controller
      */
     public function create() : View
     {
-      return view('deposits.create');
+      return view('deposits.create',[
+        'account_balance' => $this->account_balance,
+      ]);
     }
 
     /**
@@ -48,6 +67,7 @@ class DepositController extends Controller
         [
           'account_id' => Auth::id(),
           'amount' => $request->input('amount'),
+          'account_balance' => $this->account_balance,
         ]
       );
       // $transaction = Transaction::create(
@@ -69,7 +89,8 @@ class DepositController extends Controller
     public function show(Deposit $deposit) : View
     {
         return view('deposits.show', [
-            'deposit' => $deposit
+            'deposit' => $deposit,
+            'account_balance' => $this->account_balance,
         ]);
 
     }
@@ -83,7 +104,8 @@ class DepositController extends Controller
     public function edit(Deposit $deposit) : View
     {
         return view('deposits.edit', [
-            'deposit' => $deposit
+            'deposit' => $deposit,
+            'account_balance' => $this->account_balance,
         ]);
     }
 

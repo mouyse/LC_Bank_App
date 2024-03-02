@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-              
+
             @if ($message = Session::get('success'))
                 <div class="alert alert-success" role="alert">
                     {{ $message }}
@@ -13,7 +13,7 @@
             @endif
 
             <div class="card">
-                <div class="card-header">Deposit List</div>
+                <div class="card-header">Deposit List  - Account balance: <b>{{ $account_balance }}</b></div>
                 <div class="card-body">
                     <a href="{{ route('deposits.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Deposit Cash</a>
                     <table class="table table-striped table-bordered">

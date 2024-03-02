@@ -13,7 +13,7 @@
             @endif
 
             <div class="card">
-                <div class="card-header">Withdrawal List</div>
+                <div class="card-header">Withdrawal List - Available Balance: <b>{{ $account_balance }}</b></div>
                 <div class="card-body">
                     <a href="{{ route('withdrawals.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Withdraw Cash</a>
                     <table class="table table-striped table-bordered">
@@ -21,7 +21,7 @@
                           <tr>
                             <th scope="col">Sl. No.#</th>
                             <th scope="col">Amount</th>
-                            <th scope="col">Withdrawan on</th>
+                            <th scope="col">Withdrew on</th>
                             <th scope="col">Action</th>
                           </tr>
                         </thead>

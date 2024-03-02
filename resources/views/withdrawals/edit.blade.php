@@ -18,7 +18,7 @@
 
                 <div class="card-header">
                     <div class="float-start">
-                        Edit withdrawal
+                        Edit withdrawal - Account balance: <b>{{ $account_balance }}</b>
                     </div>
                     <div class="float-end">
                         <a href="{{ route('withdrawals.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
