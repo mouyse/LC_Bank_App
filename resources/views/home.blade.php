@@ -13,8 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    Email: {{ $user_email }}<br />
+                    Account Balance: {{ $account_balance }}
                 </div>
             </div>
         </div>
