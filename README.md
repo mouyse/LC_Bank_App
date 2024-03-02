@@ -49,3 +49,12 @@ Reading and learning new things(technology, languages and so on) is something wh
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Jay Shah via [jayy.shah16@gmail.com](mailto:jayy.shah16@gmail.com). All security vulnerabilities will be promptly addressed.
+
+
+## References used
+
+I have used below link to understand and expand my knowledge about basics of accounting/ledger/banking/transactions/etc:
+
+- [Relational Data Model for Double-Entry Accounting](https://stackoverflow.com/questions/59432964/relational-data-model-for-double-entry-accounting/59465148#59465148)
+- [Double Entry Account](https://www.softwaregems.com.au/Documents/Student_Resolutions/Alex/Alex%20Account%20TA.pdf)
+- [How to design banking financial transactions database schema?](https://dba.stackexchange.com/questions/301066/how-to-design-banking-financial-transactions-database-schema)
