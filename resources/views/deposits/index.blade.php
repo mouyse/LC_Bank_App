@@ -27,7 +27,7 @@
                             @forelse ($deposits as $deposit)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{ $deposit->account_id }}</td>
+                                <td>{{ $deposit->amount }}</td>
                                 <td>
                                     <form action="{{ route('deposits.destroy', $deposit->deposit_id) }}" method="post">
                                         @csrf
