@@ -38,7 +38,7 @@
                       </li>
 
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('home') }}">{{ __('Cash Deposit') }}</a>
+                          <a class="nav-link" href="{{ route('deposits.index') }}">{{ __('Cash Deposit') }}</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="{{ route('home') }}">{{ __('Cash Withdrawal') }}</a>

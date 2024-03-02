@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreDepositRequest;
 use App\Http\Requests\UpdateDepositRequest;
 use App\Models\Deposit;
+use App\Models\Transaction;
+
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+
+use Auth;
 
 class DepositController extends Controller
 {
@@ -13,9 +19,11 @@ class DepositController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() : View
     {
-        //
+      return view('deposits.index', [
+          'deposits' => Deposit::latest()->paginate(3)
+      ]);
     }
 
     /**
@@ -23,9 +31,9 @@ class DepositController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() : View
     {
-        //
+      return view('deposits.create');
     }
 
     /**
@@ -34,9 +42,15 @@ class DepositController extends Controller
      * @param  \App\Http\Requests\StoreDepositRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDepositRequest $request)
+    public function store(StoreDepositRequest $request) : RedirectResponse
     {
-        //
+      $deposit = Deposit::create('account_id' => Auth::id());
+      $transaction = Transaction::create(
+        'transaction_type_id' => 1,
+        'amount' => $request->input('amount'),
+      );
+      return redirect()->route('deposits.index')
+              ->withSuccess('Amount is deposited successfully.');
     }
 
     /**
@@ -45,9 +59,12 @@ class DepositController extends Controller
      * @param  \App\Models\Deposit  $deposit
      * @return \Illuminate\Http\Response
      */
-    public function show(Deposit $deposit)
+    public function show(Deposit $deposit) : View
     {
-        //
+        return view('deposits.show', [
+            'deposit' => $deposit
+        ]);
+
     }
 
     /**
@@ -56,9 +73,11 @@ class DepositController extends Controller
      * @param  \App\Models\Deposit  $deposit
      * @return \Illuminate\Http\Response
      */
-    public function edit(Deposit $deposit)
+    public function edit(Deposit $deposit) : View
     {
-        //
+        return view('deposits.edit', [
+            'deposit' => $deposit
+        ]);
     }
 
     /**
@@ -70,7 +89,9 @@ class DepositController extends Controller
      */
     public function update(UpdateDepositRequest $request, Deposit $deposit)
     {
-        //
+        $deposit->update($request->all());
+        return redirect()->back()
+                ->withSuccess('Deposited amount is updated successfully.');
     }
 
     /**
@@ -79,8 +100,10 @@ class DepositController extends Controller
      * @param  \App\Models\Deposit  $deposit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Deposit $deposit)
+    public function destroy(Deposit $deposit) : RedirectResponse
     {
-        //
+        $deposit->delete();
+        return redirect()->route('deposits.index')
+                ->withSuccess('Deposited amount is deleted successfully.');
     }
 }
