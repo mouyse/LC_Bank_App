@@ -24,3 +24,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+
+Route::resource('deposits', App\Http\Controllers\DepositController::class);
+Route::resource('withdrawals', App\Http\Controllers\WithdrawalController::class);
+Route::resource('transaction', App\Http\Controllers\TransactionController::class);
+Route::resource('transfer', App\Http\Controllers\TransferController::class);
