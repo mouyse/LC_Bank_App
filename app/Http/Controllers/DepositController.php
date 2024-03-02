@@ -44,10 +44,12 @@ class DepositController extends Controller
      */
     public function store(StoreDepositRequest $request) : RedirectResponse
     {
-      $deposit = Deposit::create('account_id' => Auth::id());
+      $deposit = Deposit::create(['account_id' => Auth::id()]);
       $transaction = Transaction::create(
-        'transaction_type_id' => 1,
-        'amount' => $request->input('amount'),
+        [
+          'transaction_type_id' => 1,
+          'amount' => $request->input('amount'),
+        ],
       );
       return redirect()->route('deposits.index')
               ->withSuccess('Amount is deposited successfully.');
