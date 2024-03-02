@@ -94,10 +94,10 @@ class DepositController extends Controller
      * @param  \App\Models\Deposit  $deposit
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDepositRequest $request, Deposit $deposit)
+    public function update(UpdateDepositRequest $request, Deposit $deposit) : RedirectResponse
     {
         $deposit->update($request->all());
-        return redirect()->back()
+        return redirect('/deposits/')
                 ->withSuccess('Deposited amount is updated successfully.');
     }
 
