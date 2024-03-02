@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Deposit extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = "deposit_id";
+
+    protected $fillable = [
+        'account_id',
+        'created_at',
+        'updated_at',
+    ];
 }

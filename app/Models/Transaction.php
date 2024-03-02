@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = "transaction_id";
+
+    protected $fillable = [
+        'transaction_type_id',
+        'amount',
+        'created_at',
+        'updated_at',
+    ];
 }
