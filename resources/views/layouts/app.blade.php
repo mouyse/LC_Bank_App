@@ -29,11 +29,12 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav mx-auto">
 
 
                       @if (Auth::check())
-                      <li class="nav-item">
+                      <li class="nav-item"><i class="fa-solid fa-cart-shopping"></i>
+
                           <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
                       </li>
 

@@ -1,5 +1,5 @@
 
-# Problem Statement
+## Problem Statement
 
 
 Develop a small banking application in PHP using Laravel framework
@@ -32,6 +32,14 @@ designed to gauge your skills and give us an idea of how you
 approach tasks relevant to the role. Please try to write clean and
 maintainable code. More points for unit tests, but it is not necessary. It
 would be great if you could send this over to us within 3 days.
+
+
+## Application Screenshots
+
+### Home Page
+
+![Home page screenshot](https://uploadnow.io/s/1395b927-e22f-4961-99bb-4d67cb103ef9 "Home page screenshot")
+
 
 
 ## 🚀 About Me
