@@ -37,14 +37,54 @@
                           </tr>
                         </thead>
                         <tbody>
-                            @forelse ($statement as $transaction)
+                            @php $balance = 0; @endphp
+                            @forelse ($transactions as $transaction)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{ $transaction->amount }}</td>
                                 <td>{{ $transaction->created_at }}</td>
-                                <td>{{ $transaction->type }}</td>
-                                <td>{{ $transaction->details }}</td>
-                                <td>{{ $transaction->balance }}</td>
+                                <td>{{ $transaction->amount }}</td>
+                                <td>
+                                  @if ($transaction->type!="Debit" && $transaction->type!="Credit")
+                                    @if ($transaction->type==Auth::id())
+                                      Debit
+                                    @else
+                                      Credit
+                                    @endif
+                                  @else
+                                  {{ $transaction->type }}
+                                  @endif
+                                </td>
+                                <td>
+                                  @if ($transaction->type!="Debit" && $transaction->type!="Credit")
+                                          @if ($transaction->type==Auth::id())
+                                            Transferred to {{ App\Models\User::find($transaction->type)->email }}
+                                          @else
+                                            Received from {{ App\Models\User::find($transaction->type)->email }}
+                                          @endif
+                                  @else
+                                          @if ($transaction->type=="Debit")
+                                            Withdraw
+                                          @else
+                                            Deposit
+                                          @endif
+                                  @endif
+                                </td>
+                                <td>
+                                  @if ($transaction->type!="Debit" && $transaction->type!="Credit")
+                                          @if ($transaction->type==Auth::id())
+                                            @php $balance -= $transaction->amount @endphp
+                                          @else
+                                            @php $balance += $transaction->amount @endphp
+                                          @endif
+                                  @else
+                                          @if ($transaction->type=="Debit")
+                                            @php $balance -= $transaction->amount @endphp
+                                          @else
+                                            @php $balance += $transaction->amount @endphp
+                                          @endif
+                                  @endif
+                                  {{ $balance }}
+                                </td>
                             </tr>
                             @empty
                                 <td colspan="6">
@@ -56,7 +96,6 @@
                         </tbody>
                       </table>
 
-                      {{ $statement->links() }}
 
                 </div>
             </div>
