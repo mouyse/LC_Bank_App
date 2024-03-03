@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+.account-statement .received{
+  background-color: green;
+  color:white;
+}
+
+.account-statement .sent{
+  background-color: red;
+  color:white;
+}
+
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -26,12 +38,12 @@
 
                 <div class="card-body">
                     <h5>Transfers List</h5><br />
-                    <table class="table table-striped table-bordered">
+                    <table class="table table-striped table-bordered account-statement">
                         <thead>
                           <tr>
                             <th scope="col">Sl. No.#</th>
                             <th scope="col">Amount</th>
-                            <th scope="col">Sent to</th>
+                            <th scope="col">Details</th>
                             <th scope="col">Transferred on</th>
                             <th scope="col">Action</th>
                           </tr>
@@ -40,8 +52,14 @@
                             @forelse ($transfers as $transfer)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{ $transfer->amount }}</td>
-                                <td>{{ $transfer->receiver->email }}</td>
+                                <td class="@if ($transfer->receiver_id==Auth::id()) received @else sent @endif">{{ $transfer->amount }}</td>
+                                <td>
+                                  @if ($transfer->receiver_id==Auth::id())
+                                    Received from {{ $transfer->sender->email }}
+                                  @else
+                                    Sent to {{ $transfer->receiver->email }}
+                                  @endif
+                                </td>
                                 <td>{{ $transfer->created_at }}</td>
                                 <td>
                                     <form action="{{ route('transfers.destroy', $transfer->transfer_id) }}" method="post">

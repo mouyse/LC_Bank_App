@@ -6,6 +6,7 @@ use Illuminate\View\Component;
 use App\Models\Deposit;
 use App\Models\Withdrawal;
 use App\Models\Transaction;
+use App\Models\Transfer;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -24,7 +25,9 @@ class AccountBalance extends Component
     {
         $deposited_amount = Deposit::where('account_id',Auth::id())->sum('amount');
         $withdrawn_amount = Withdrawal::where('account_id',Auth::id())->sum('amount');
-        $this->account_balance = $deposited_amount - $withdrawn_amount;
+        $transferred_amount = Transfer::where('sender_id',Auth::id())->sum('amount');
+        $received_amount = Transfer::where('receiver_id',Auth::id())->sum('amount');
+        $this->account_balance = $deposited_amount - $withdrawn_amount - $transferred_amount + $received_amount;
 
     }
 

@@ -26,7 +26,9 @@ class TransferController extends Controller
     {
 
         return view('transfers.index', [
-            'transfers' => Transfer::where('sender_id',Auth::id())->latest()->paginate(10)
+            'transfers' => Transfer::where('sender_id',Auth::id())
+                        ->orWhere('receiver_id',Auth::id())
+                        ->latest()->paginate(10)
         ]);
     }
 

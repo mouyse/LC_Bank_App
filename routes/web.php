@@ -30,3 +30,5 @@ Route::resource('deposits', App\Http\Controllers\DepositController::class);
 Route::resource('withdrawals', App\Http\Controllers\WithdrawalController::class);
 Route::resource('transactions', App\Http\Controllers\TransactionController::class);
 Route::resource('transfers', App\Http\Controllers\TransferController::class);
+
+Route::get('/account-statement',[App\Http\Controllers\AccountStatementController::class, 'index'])->name('account-statement');
