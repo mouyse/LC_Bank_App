@@ -24,7 +24,7 @@ class AccountStatementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() : View
+    public function index(Request $request) : View
     {
 
       $all_transactions = DB::select("
@@ -41,4 +41,6 @@ class AccountStatementController extends Controller
           'transactions' => $all_transactions,
       ]);
     }
+
+
 }
