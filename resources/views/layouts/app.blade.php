@@ -34,20 +34,20 @@
 
                       @if (Auth::check())
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
+                          <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
                       </li>
 
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('deposits.index') }}">{{ __('Cash Deposit') }}</a>
+                          <a class="nav-link" href="{{ route('deposits.index') }}">{{ __('Deposit') }}</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ route('withdrawals.index') }}">{{ __('Cash Withdrawal') }}</a>
+                        <a class="nav-link" href="{{ route('withdrawals.index') }}">{{ __('Withdrawal') }}</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('home') }}">{{ __('Cash Transfer') }}</a>
+                          <a class="nav-link" href="{{ route('home') }}">{{ __('Transfer') }}</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('home') }}">{{ __('Account Statement') }}</a>
+                          <a class="nav-link" href="{{ route('home') }}">{{ __('Statement') }}</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="{{ route('logout') }}">{{ __('Logout') }}</a>

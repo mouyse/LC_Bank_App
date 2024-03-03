@@ -25,7 +25,7 @@ class UpdateDepositRequest extends FormRequest
     {
 
           return [
-              'amount' => 'required',
+              'amount' => 'required|numeric',
           ];
     }
 }

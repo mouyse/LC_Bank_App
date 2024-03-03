@@ -24,7 +24,7 @@ class UpdateWithdrawlRequest extends FormRequest
     public function rules()
     {
         return [
-            'amount' => 'required',
+            'amount' => 'required|numeric',
         ];
     }
 }
