@@ -18,7 +18,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Auth::routes();
+// Auth::routes();
+Auth::routes(['register' => true, 'password.request' => false, 'reset' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
