@@ -38,7 +38,7 @@ would be great if you could send this over to us within 3 days.
 
 ### Home Page
 
-![Home page screenshot](https://uploadnow.io/s/1395b927-e22f-4961-99bb-4d67cb103ef9 "Home page screenshot")
+![Home page screenshot](https://filebin.net/lmkrdyxwxymjvv7f/Screenshot_from_2024-03-03_17-19-42.png  "Home page screenshot")
 
 
 
