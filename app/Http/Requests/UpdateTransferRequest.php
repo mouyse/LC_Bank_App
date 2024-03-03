@@ -13,7 +13,7 @@ class UpdateTransferRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class UpdateTransferRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'receiver_id' => 'required|email|exists:users,email',
+            'amount' => 'required|numeric',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'receiver_id.required' => 'This field is required',
+            'receiver_id.email' => 'Invalid email id passed',
+            'receiver_id.exists' => 'Email id does not exists',
+            'amount.required' => 'Please enter the amount',
+            'amount.numeric' => 'Please enter the valid amount in numbers only',
         ];
     }
 }

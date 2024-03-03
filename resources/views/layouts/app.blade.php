@@ -44,7 +44,7 @@
                         <a class="nav-link" href="{{ route('withdrawals.index') }}">{{ __('Withdrawal') }}</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('home') }}">{{ __('Transfer') }}</a>
+                          <a class="nav-link" href="{{ route('transfers.index') }}">{{ __('Transfer') }}</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="{{ route('home') }}">{{ __('Statement') }}</a>

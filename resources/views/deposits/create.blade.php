@@ -29,7 +29,7 @@
                       <div class="mb-3 row">
                           <label for="code" class="col-md-4 col-form-label text-md-end text-start">Amount</label>
                           <div class="col-md-6">
-                            <input type="number" class="form-control @error('amount') is-invalid @enderror" id="amount" name="amount" value="{{ old('amount') }}">
+                            <input type="number" step="0.01" class="form-control @error('amount') is-invalid @enderror" id="amount" name="amount" value="{{ old('amount') }}">
                               @if ($errors->has('amount'))
                                   <span class="text-danger">{{ $errors->first('amount') }}</span>
                               @endif

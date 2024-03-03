@@ -67,15 +67,8 @@ class DepositController extends Controller
         [
           'account_id' => Auth::id(),
           'amount' => $request->input('amount'),
-          'account_balance' => $this->account_balance,
         ]
       );
-      // $transaction = Transaction::create(
-      //   [
-      //     'transaction_type_id' => 1,
-      //     'amount' => $request->input('amount'),
-      //   ],
-      // );
       return redirect()->route('deposits.index')
               ->withSuccess('Amount is deposited successfully.');
     }
