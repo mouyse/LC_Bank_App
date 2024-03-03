@@ -6,6 +6,7 @@ use App\Http\Requests\StoreWithdrawalRequest;
 use App\Http\Requests\UpdateWithdrawalRequest;
 use App\Models\Withdrawal;
 use App\Models\Deposit;
+use App\Models\Transfer;
 
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -14,22 +15,6 @@ use Auth;
 
 class WithdrawalController extends Controller
 {
-
-    protected $account_balance;
-
-    public function __construct(){
-
-
-        $this->middleware(function ($request, $next) {
-            $deposited_amount = Deposit::where('account_id',Auth::id())->sum('amount');
-            $withdrawn_amount = Withdrawal::where('account_id',Auth::id())->sum('amount');
-            $this->account_balance = $deposited_amount - $withdrawn_amount;
-
-            return $next($request);
-        });
-
-    }
-
   /**
    * Display a listing of the resource.
    *
@@ -38,8 +23,7 @@ class WithdrawalController extends Controller
     public function index() : View
     {
       return view('withdrawals.index', [
-          'withdrawals' => Withdrawal::where('account_id',Auth::id())->latest()->paginate(10),
-          'account_balance' => $this->account_balance,
+          'withdrawals' => Withdrawal::where('account_id',Auth::id())->latest()->paginate(10)
       ]);
     }
 
@@ -50,9 +34,7 @@ class WithdrawalController extends Controller
      */
     public function create() : View
     {
-      return view('withdrawals.create',[
-        'account_balance' => $this->account_balance
-      ]);
+      return view('withdrawals.create');
     }
 
     /**
@@ -69,12 +51,6 @@ class WithdrawalController extends Controller
         'amount' => $request->input('amount'),
       ]
     );
-    // $transaction = Transaction::create(
-    //   [
-    //     'transaction_type_id' => 1,
-    //     'amount' => $request->input('amount'),
-    //   ],
-    // );
     return redirect()->route('withdrawals.index')
             ->withSuccess('Amount is Withdrawn successfully.');
   }
@@ -88,8 +64,7 @@ class WithdrawalController extends Controller
   public function show(Withdrawal $Withdrawal) : View
   {
       return view('withdrawals.show', [
-          'withdrawal' => $Withdrawal,
-          'account_balance' => $this->account_balance,
+          'withdrawal' => $Withdrawal
       ]);
 
   }
@@ -103,8 +78,7 @@ class WithdrawalController extends Controller
   public function edit(Withdrawal $Withdrawal) : View
   {
       return view('withdrawals.edit', [
-          'withdrawal' => $Withdrawal,
-          'account_balance' => $this->account_balance,
+          'withdrawal' => $Withdrawal
       ]);
   }
 

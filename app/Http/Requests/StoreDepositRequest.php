@@ -27,4 +27,12 @@ class StoreDepositRequest extends FormRequest
             'amount' => 'required|numeric',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'amount.required' => 'Please enter the amount',
+            'amount.numeric' => 'Please enter the valid amount in numbers only',
+        ];
+    }
 }
