@@ -13,9 +13,18 @@
             @endif
 
             <div class="card">
-                <div class="card-header">Deposit List  - Account balance: <b>{{ $account_balance }}</b></div>
+
+
+                  <div class="card-header">
+                      <div class="float-start">
+                          <x-account-balance :account-balance="$account_balance"/>
+                      </div>
+                      <div class="float-end">
+                          <a href="{{ route('deposits.create') }}" class="btn btn-success btn-sm my-2">Deposit Cash</a>
+                      </div>
+                  </div>
                 <div class="card-body">
-                    <a href="{{ route('deposits.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Deposit Cash</a>
+                    <h5>Deposits List</h5><br />
                     <table class="table table-striped table-bordered">
                         <thead>
                           <tr>

@@ -7,9 +7,10 @@
 
             <div class="card">
 
+
                 <div class="card-header">
                     <div class="float-start">
-                        Add New Deposit - Account balance: <b>{{ $account_balance }}</b>
+                        <x-account-balance :account-balance="$account_balance"/>
                     </div>
                     <div class="float-end">
                         <a href="{{ route('deposits.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
@@ -19,6 +20,12 @@
                   <form action="{{ route('deposits.store') }}" method="post">
                       @csrf
 
+
+                      <div class="mb-3 row">
+                        <label class="col-md-6 col-form-label text-md-end text-start">
+                          <h4>Deposit money</h4>
+                        </label>
+                      </div>
                       <div class="mb-3 row">
                           <label for="code" class="col-md-4 col-form-label text-md-end text-start">Amount</label>
                           <div class="col-md-6">

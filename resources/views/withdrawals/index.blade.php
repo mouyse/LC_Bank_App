@@ -13,9 +13,19 @@
             @endif
 
             <div class="card">
-                <div class="card-header">Withdrawal List - Available Balance: <b>{{ $account_balance }}</b></div>
+
+                <div class="card-header">
+                    <div class="float-start">
+                        <x-account-balance :account-balance="$account_balance"/>
+                    </div>
+                    <div class="float-end">
+                        <a href="{{ route('withdrawals.create') }}" class="btn btn-success btn-sm my-2">Withdraw Cash</a>
+                    </div>
+                </div>
+
+
                 <div class="card-body">
-                    <a href="{{ route('withdrawals.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Withdraw Cash</a>
+                    <h5>Withdrawal List</h5><br />
                     <table class="table table-striped table-bordered">
                         <thead>
                           <tr>

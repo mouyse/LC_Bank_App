@@ -18,7 +18,7 @@
 
                 <div class="card-header">
                     <div class="float-start">
-                        Edit withdrawal - Account balance: <b>{{ $account_balance }}</b>
+                        <x-account-balance :account-balance="$account_balance"/>
                     </div>
                     <div class="float-end">
                         <a href="{{ route('withdrawals.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
@@ -28,6 +28,12 @@
                     <form action="{{ route('withdrawals.update', $withdrawal->withdrawal_id) }}" method="post">
                         @csrf
                         @method("PUT")
+
+                      <div class="mb-3 row">
+                        <label class="col-md-6 col-form-label text-md-end text-start">
+                          <h4>Edit withdrawal amount</h4>
+                        </label>
+                      </div>
 
                       <div class="mb-3 row">
                           <label for="code" class="col-md-4 col-form-label text-md-end text-start">Amount</label>
@@ -40,7 +46,7 @@
                       </div>
 
                       <div class="mb-3 row">
-                          <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Update withdrawaled Amount">
+                          <input type="submit" class="col-md-4 offset-md-5 btn btn-primary" value="Update withdrawaled Amount">
                       </div>
 
 
