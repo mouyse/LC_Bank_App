@@ -17,20 +17,6 @@ use Auth;
 
 class TransferController extends Controller
 {
-    protected $account_balance;
-
-    public function __construct(){
-
-
-        $this->middleware(function ($request, $next) {
-            $deposited_amount = Deposit::where('account_id',Auth::id())->sum('amount');
-            $withdrawn_amount = Withdrawal::where('account_id',Auth::id())->sum('amount');
-            $this->account_balance = $deposited_amount - $withdrawn_amount;
-
-            return $next($request);
-        });
-
-    }
     /**
      * Display a listing of the resource.
      *
@@ -40,8 +26,7 @@ class TransferController extends Controller
     {
 
         return view('transfers.index', [
-            'transfers' => Transfer::where('sender_id',Auth::id())->latest()->paginate(10),
-            'account_balance' => $this->account_balance,
+            'transfers' => Transfer::where('sender_id',Auth::id())->latest()->paginate(10)
         ]);
     }
 
@@ -52,9 +37,7 @@ class TransferController extends Controller
      */
     public function create() : View
     {
-      return view('transfers.create',[
-        'account_balance' => $this->account_balance,
-      ]);
+      return view('transfers.create');
     }
 
     /**
@@ -85,8 +68,7 @@ class TransferController extends Controller
     public function show(Transfer $transfer) : View
     {
         return view('transfers.show', [
-            'transfer' => $trasnfer,
-            'account_balance' => $this->account_balance,
+            'transfer' => $trasnfer
         ]);
     }
 
@@ -99,8 +81,7 @@ class TransferController extends Controller
     public function edit(Transfer $transfer) : View
     {
         return view('transfers.edit', [
-            'transfer' => $transfer,
-            'account_balance' => $this->account_balance,
+            'transfer' => $transfer
         ]);
     }
 

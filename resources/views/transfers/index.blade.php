@@ -16,7 +16,7 @@
 
                 <div class="card-header">
                     <div class="float-start">
-                        <x-account-balance :account-balance="$account_balance"/>
+                        <x-account-balance/>
                     </div>
                     <div class="float-end">
                         <a href="{{ route('transfers.create') }}" class="btn btn-success btn-sm my-2">Transfer Money</a>

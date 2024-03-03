@@ -27,12 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $deposited_amount = Deposit::where('account_id',Auth::id())->sum('amount');
-        $withdrawn_amount = Withdrawal::where('account_id',Auth::id())->sum('amount');
-        $account_balance = $deposited_amount - $withdrawn_amount;
         return view('home',[
-          'user_email' => Auth::user()->email,
-          'account_balance' => $account_balance,
+          'user_email' => Auth::user()->email
         ]);
     }
 

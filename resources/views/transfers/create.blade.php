@@ -9,7 +9,7 @@
 
                 <div class="card-header">
                     <div class="float-start">
-                        <x-account-balance :account-balance="$account_balance"/>
+                        <x-account-balance/>
                     </div>
                     <div class="float-end">
                         <a href="{{ route('transfers.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>

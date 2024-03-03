@@ -13,8 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    Email: <b>{{ $user_email }}</b><br />
-                    Account Balance: <b>{{ $account_balance }}</b>
+                    Email: <b>{{ $user_email }}</b><br /><br />
+                      <x-account-balance/>
                 </div>
             </div>
         </div>

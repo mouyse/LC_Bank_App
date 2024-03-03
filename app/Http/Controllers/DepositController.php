@@ -15,21 +15,6 @@ use Auth;
 
 class DepositController extends Controller
 {
-    protected $account_balance;
-
-    public function __construct(){
-
-
-        $this->middleware(function ($request, $next) {
-            $deposited_amount = Deposit::where('account_id',Auth::id())->sum('amount');
-            $withdrawn_amount = Withdrawal::where('account_id',Auth::id())->sum('amount');
-            $this->account_balance = $deposited_amount - $withdrawn_amount;
-
-            return $next($request);
-        });
-
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -38,8 +23,7 @@ class DepositController extends Controller
     public function index() : View
     {
       return view('deposits.index', [
-          'deposits' => Deposit::where('account_id',Auth::id())->latest()->paginate(10),
-          'account_balance' => $this->account_balance,
+          'deposits' => Deposit::where('account_id',Auth::id())->latest()->paginate(10)
       ]);
     }
 
@@ -50,9 +34,7 @@ class DepositController extends Controller
      */
     public function create() : View
     {
-      return view('deposits.create',[
-        'account_balance' => $this->account_balance,
-      ]);
+      return view('deposits.create');
     }
 
     /**
@@ -82,8 +64,7 @@ class DepositController extends Controller
     public function show(Deposit $deposit) : View
     {
         return view('deposits.show', [
-            'deposit' => $deposit,
-            'account_balance' => $this->account_balance,
+            'deposit' => $deposit
         ]);
 
     }
@@ -97,8 +78,7 @@ class DepositController extends Controller
     public function edit(Deposit $deposit) : View
     {
         return view('deposits.edit', [
-            'deposit' => $deposit,
-            'account_balance' => $this->account_balance,
+            'deposit' => $deposit
         ]);
     }
 
