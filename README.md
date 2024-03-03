@@ -40,6 +40,29 @@ would be great if you could send this over to us within 3 days.
 
 ![Home page screenshot](https://filebin.net/lmkrdyxwxymjvv7f/Screenshot_from_2024-03-03_17-19-42.png  "Home page screenshot")
 
+### Deposit Page
+
+![Deposit page screenshot](https://filebin.net/lmkrdyxwxymjvv7f/Screenshot_from_2024-03-03_17-19-51.png  "Deposit page screenshot")
+
+![Deposit page showing error screenshot](https://filebin.net/lmkrdyxwxymjvv7f/Screenshot_from_2024-03-03_17-20-03.png  "Deposit page showing error screenshot")
+
+
+### Withdrawal Page
+
+![Withdrawal page screenshot](https://filebin.net/lmkrdyxwxymjvv7f/Screenshot_from_2024-03-03_17-20-15.png  "Withdrawal page screenshot")
+
+![Withdrawal page showing error screenshot](https://filebin.net/lmkrdyxwxymjvv7f/Screenshot_from_2024-03-03_17-20-25.png  "Withdrawal page showing error while withdrawing more money than available balance screenshot")
+
+### Transfer Page
+
+![Transfer page showing list of all the transfers screenshot](https://filebin.net/lmkrdyxwxymjvv7f/Screenshot_from_2024-03-03_17-20-34.png  "Transfer page showing list of all the transfers screenshot")
+
+![Transfer page showing error while validating email and transfer amount screenshot](https://filebin.net/lmkrdyxwxymjvv7f/Screenshot_from_2024-03-03_17-21-48.png  "Transfer page showing error while validating email and transfer amount screenshot")
+
+
+### Account Statement Page
+
+![Account statement page screenshot](https://filebin.net/lmkrdyxwxymjvv7f/Screenshot_from_2024-03-03_17-21-57.png  "Account statement page screenshot")
 
 
 ## 🚀 About Me
