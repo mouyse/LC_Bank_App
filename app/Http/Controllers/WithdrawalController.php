@@ -38,7 +38,7 @@ class WithdrawalController extends Controller
     public function index() : View
     {
       return view('withdrawals.index', [
-          'withdrawals' => Withdrawal::where('account_id',Auth::id())->latest()->paginate(3),
+          'withdrawals' => Withdrawal::where('account_id',Auth::id())->latest()->paginate(20),
           'account_balance' => $this->account_balance,
       ]);
     }

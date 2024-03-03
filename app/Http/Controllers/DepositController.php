@@ -38,7 +38,7 @@ class DepositController extends Controller
     public function index() : View
     {
       return view('deposits.index', [
-          'deposits' => Deposit::where('account_id',Auth::id())->latest()->paginate(3),
+          'deposits' => Deposit::where('account_id',Auth::id())->latest()->paginate(20),
           'account_balance' => $this->account_balance,
       ]);
     }
